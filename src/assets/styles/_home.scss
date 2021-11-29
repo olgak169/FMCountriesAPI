@@ -1,0 +1,195 @@
+@import 'basics';
+.panel-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 1.5rem 0;
+}
+.label-search,
+.label-select {
+    box-shadow: $box-shadow;
+    border-radius: $b-rad;
+    background: $accent;
+    color: $input-text;
+    
+}
+.label-search {
+    display: flex;
+    align-items: center;
+    padding: 0 1.6rem;
+    #search-icon {
+        fill: $input-text;
+    }
+    input {
+        background: transparent;
+        border: none;
+        font-family: inherit;
+        padding: 0.9rem 1rem;
+        font-size: 0.875rem;
+        color: $input-text;
+        &:focus {
+            outline: none;
+            border: none;
+        }
+        &::placeholder{
+            color: inherit;
+            opacity: 1;
+        }
+    }
+}
+.label-select {
+    font-size: 0.875rem;
+    width: 60%;
+    position: relative;
+    & > * {
+        width: 100%;
+    }
+    .btn-regions {
+        padding: 0.9rem 0.5rem 0.9rem 1.6rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        #down-arrow {
+            fill: $input-text;
+        }
+    }
+    .region-list {
+        display: block;
+        list-style: none;
+        border-radius: $b-rad;
+        background: $accent;
+        position: absolute;
+        top: 3.1rem;
+        left: 0;
+        padding: 1rem 0 0.1rem 0;
+    }
+    .region-item {
+        display: block;
+        cursor: pointer;
+        padding: 0 1.6rem 0.9rem 1.6rem;
+        
+    }
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 16.6rem);
+    grid-auto-rows: minmax(20rem, auto);
+    align-items: top;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 0.6rem 0;
+  }
+
+.card {
+    background: $accent;
+    box-shadow: $box-shadow;
+    border-radius: $b-rad;
+    overflow: hidden;
+}
+.card-flag {
+    height: 10.125rem;
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
+.card-details {
+    padding: 1.6rem 1.6rem 2.8rem 1.6rem;
+    h2 {
+        margin-bottom: 1.5rem;
+    }
+    h3:not(:last-of-type) {
+        margin-bottom: 0.6rem;
+    }
+}
+.btn-up {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: transform 0.4s ease-out, opacity 0.4s ease;
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.cards-move {
+    &-enter-active,
+    &-leave-active,
+    &-move {
+        transition: transform 0.4s ease, opacity 0.5s ease;
+    }
+    &-enter-from,
+    &-leave-to {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+}
+.slide-open {
+    &-enter-active,
+    &-leave-active,
+    &-move {
+        transition: transform 0.4s ease-in-out, opacity 0.2s ease;
+    }
+    &-enter-from,
+    &-leave-to {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+}
+@media(min-width: 45rem) {
+    .label-select {
+        width: 14.5em;
+        .region-item:hover {
+            background: $bg;
+        }
+    }
+}
+@media (min-width: 80rem) {
+    .panel-inputs {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3rem 0;
+    }
+    .label-select {
+        display: flex;
+        .btn-regions {
+            padding: 0 1rem 0 1.8rem;
+        }
+        .region-list {
+            top: 3.5rem;
+        }
+        
+    }
+    .label-search {
+        width: 30em;
+        input {
+            padding: 1rem 1.8rem;
+        }
+    }
+    .cards {
+        padding: 0;
+        row-gap: 4.5rem;
+        justify-content: space-between;
+        &.start {
+            justify-content: start;
+        }
+    }
+    .card {
+        cursor: pointer;
+        h2 {
+            margin-bottom: 0.5rem;
+        }
+        h3:not(:last-of-type) {
+            margin-bottom: 0;
+        }
+    }
+    .card-details {
+        padding: 1.6rem 1.6rem 2.4rem 1.6rem;
+    }
+}
