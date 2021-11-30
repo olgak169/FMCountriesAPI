@@ -1,6 +1,5 @@
 <template>
-  <main>
-    <div class="container">
+  <main class="container">
       <top-panel :main="false"/>
       <Loader-comp v-if="this.$store.state.loading"/>
       <div class="country-container" v-if="country">
@@ -35,7 +34,6 @@
         </section>
       </div>
       <p v-else :class="{ show: this.$store.state.loading }">No results</p>
-    </div>
   </main>
 </template>
 

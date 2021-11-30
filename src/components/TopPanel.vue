@@ -17,8 +17,7 @@
         <ul v-show="selectOpen" class="region-list">
             <li 
             v-for="region in regions" 
-            :key="region" 
-            :for="region.toLowerCase()" 
+            :key="region"
             @click="selectRegion(region)"
             class="region-item">
                 {{ region }}
