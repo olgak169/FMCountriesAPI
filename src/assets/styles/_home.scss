@@ -48,6 +48,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        font-size: inherit;
         #down-arrow {
             fill: $input-text;
         }
